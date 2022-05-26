@@ -18,6 +18,7 @@ const InputSuggestions = ({
   id,
   onChange,
   highlightKeywords = false,
+  maxLength = 524288
 }: Props): JSX.Element => {
   const [results, setResults] = useState<ReactNode[]>(suggestions)
   const inputSearchRef = useRef<HTMLInputElement>(null)
@@ -59,6 +60,7 @@ const InputSuggestions = ({
         spellCheck={false}
         autoComplete="off"
         autoCapitalize="off"
+        maxLength={maxLength}
       />
       {showSuggestions && (
         <ul ref={searchSuggestionsRef}>
